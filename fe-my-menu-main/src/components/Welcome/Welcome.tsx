@@ -32,7 +32,7 @@ const Welcome: React.FC = () => {
         </Routes> */}
       {/* </MemoryRouter> */}
 
-      <Routes>
+      {/* <Routes>
         <Route
           path="/"
           element={
@@ -44,7 +44,7 @@ const Welcome: React.FC = () => {
         >
           <Route path="chemgio" element={<Main2 />}></Route>
         </Route>
-      </Routes>
+      </Routes> */}
     </div>
   );
 };

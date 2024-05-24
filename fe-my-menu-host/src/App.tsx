@@ -13,7 +13,7 @@ import Contact from './pages/Contact';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 // eslint-disable-next-line
-const RemoteApp = React.lazy(() => import('@main/RemoteApp'));
+const RemoteApp = React.lazy(() => import('@main/Main'));
 // eslint-disable-next-line
 const Booking = React.lazy(() => import('@booking/Booking'));
 
@@ -48,7 +48,9 @@ function Chemgio() {
 const Main: React.FC = () => {
   return (
     <BrowserRouter>
-      <React.Suspense>{/* <RemoteApp /> */}</React.Suspense>
+      <React.Suspense>
+        <Booking />
+      </React.Suspense>
       <nav>
         <ul>
           <li>
@@ -67,7 +69,7 @@ const Main: React.FC = () => {
       </nav>
 
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         {/* <Route

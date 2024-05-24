@@ -16,7 +16,7 @@ module.exports = {
 
     hot: true,
     port: 3000,
-    open: true,
+    open: false,
     compress: true,
     static: {
       directory: path.join(__dirname, 'dist'),
@@ -58,19 +58,9 @@ module.exports = {
         '@booking': 'booking@http://localhost:3002/remoteEntry.js',
       },
       shared: {
-        react: {
-          import: 'react', // the "react" package will be used a provided and fallback module
-          shareKey: 'react', // under this name the shared module will be placed in the share scope
-          shareScope: 'default', // share scope with this name will be used
-          singleton: true,
-        },
-        'react-dom': {
-          singleton: true,
-        },
-        'react-router-dom': {
-          requiredVersion: deps['react-router-dom'],
-          singleton: true,
-        },
+        react: { singleton: true },
+        'react-dom': { singleton: true },
+        // 'react-router-dom': { singleton: true },
       },
     }),
   ],

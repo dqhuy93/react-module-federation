@@ -4,6 +4,7 @@ const { ModuleFederationPlugin } = require('webpack').container;
 const deps = require('./package.json').dependencies;
 
 module.exports = {
+  name: 'mfe-main',
   entry: './src/index',
   devtool: 'source-map',
   output: {
@@ -65,21 +66,9 @@ module.exports = {
         '@booking': 'booking@http://localhost:3002/remoteEntry.js',
       },
       shared: {
-        react: {
-          requiredVersion: deps.react,
-          import: 'react', // the "react" package will be used a provided and fallback module
-          shareKey: 'react', // under this name the shared module will be placed in the share scope
-          shareScope: 'default', // share scope with this name will be used
-          singleton: true,
-        },
-        'react-dom': {
-          requiredVersion: deps['react-dom'],
-          singleton: true,
-        },
-        'react-router-dom': {
-          requiredVersion: deps['react-router-dom'],
-          singleton: true,
-        },
+        react: { singleton: true },
+        'react-dom': { singleton: true },
+        'react-router-dom': { singleton: true },
       },
     }),
   ],

@@ -6,6 +6,7 @@ const Page1 = () => <h2>Remote Page 1</h2>;
 const Page2 = () => <h2>Remote Page 2</h2>;
 
 const RemoteApp = () => {
+  return <h1>RemoteApp</h1>;
   return (
     <Router>
       <nav>
