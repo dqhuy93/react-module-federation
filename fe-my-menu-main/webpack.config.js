@@ -5,7 +5,7 @@ const deps = require('./package.json').dependencies;
 
 module.exports = {
   name: 'mfe-main',
-  entry: './src/index',
+  entry: './src/index.ts',
   devtool: 'source-map',
   output: {
     asyncChunks: true,
@@ -32,43 +32,32 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  target: 'web',
   module: {
     rules: [
       {
         test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [require.resolve('@babel/preset-react')],
-          },
-        },
+        use: ['babel-loader'],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      // filename: 'index.html',
-      // chunks: ['main'],
-      // publicPath: '/',
     }),
     new ModuleFederationPlugin({
-      name: 'main',
+      name: 'main1',
       filename: 'remoteEntry.js',
       exposes: {
-        './Main': './src/pages/index',
-        './RemoteApp': './src/pages/RemoteApp',
-        // './Welcome': './src/components/Welcome/index',
+        './RemoteApp': '/src/pages/RemoteApp',
       },
-      remotes: {
-        '@booking': 'booking@http://localhost:3002/remoteEntry.js',
-      },
+      // remotes: {
+      //   host: 'host@http://localhost:3000/remoteEntry.js',
+      // },
       shared: {
         react: { singleton: true },
         'react-dom': { singleton: true },
-        'react-router-dom': { singleton: true },
+        'react-router-dom': {},
       },
     }),
   ],

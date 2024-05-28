@@ -12,10 +12,13 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import { RemoteComponent } from './components/RemoteComponent';
+
 // eslint-disable-next-line
-const RemoteApp = React.lazy(() => import('@main/Main'));
+const MainRemoteApp = React.lazy(() => import('@main/RemoteApp'));
+
 // eslint-disable-next-line
-const Booking = React.lazy(() => import('@booking/Booking'));
+const BookingRemoteApp = React.lazy(() => import('@booking/RemoteApp'));
 
 function Main1() {
   return (
@@ -49,9 +52,17 @@ const Main: React.FC = () => {
   return (
     <BrowserRouter>
       <React.Suspense>
-        <Booking />
+        <MainRemoteApp />
+        <BookingRemoteApp />
       </React.Suspense>
+
       <nav>
+        {/* <RemoteComponent
+          remoteName="main"
+          remoteUrl="http://localhost:3001/remoteEntry.js"
+          module="RemoteApp"
+          fallback={<>Loading123</>}
+        /> */}
         <ul>
           <li>
             <Link to="/">Home</Link>

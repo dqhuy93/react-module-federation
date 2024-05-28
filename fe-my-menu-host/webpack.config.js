@@ -54,13 +54,13 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'host',
       remotes: {
-        '@main': 'main@http://localhost:3001/remoteEntry.js',
         '@booking': 'booking@http://localhost:3002/remoteEntry.js',
+        '@main': 'main1@http://localhost:3001/remoteEntry.js',
       },
       shared: {
         react: { singleton: true },
         'react-dom': { singleton: true },
-        // 'react-router-dom': { singleton: true },
+        'react-router-dom': {},
       },
     }),
   ],

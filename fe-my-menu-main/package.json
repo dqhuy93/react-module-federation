@@ -7,17 +7,9 @@
     "start": "webpack serve --mode=development --config webpack.config.js",
     "build": "webpack"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KhoiNK/fe-my-menu-main.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/KhoiNK/fe-my-menu-main/issues"
-  },
-  "homepage": "http://localhost:3001",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

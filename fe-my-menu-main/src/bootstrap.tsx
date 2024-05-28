@@ -1,6 +1,6 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import Main from "./pages";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import Main from './pages';
 
 const App: React.FC = () => {
   return (
@@ -10,6 +10,6 @@ const App: React.FC = () => {
   );
 };
 
-const container = document.getElementById("root-main") as HTMLElement;
+const container = document.getElementById('root-main') as HTMLElement;
 const root = createRoot(container);
 root.render(<App />);

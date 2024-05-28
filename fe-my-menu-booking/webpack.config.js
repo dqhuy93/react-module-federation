@@ -21,8 +21,12 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
-    devMiddleware: {
-      writeToDisk: true,
+    client: {
+      overlay: {
+        errors: false,
+        warnings: false,
+        runtimeErrors: true,
+      },
     },
   },
   resolve: {
@@ -33,7 +37,7 @@ module.exports = {
       {
         test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        use: ['babel-loader'],
       },
     ],
   },
@@ -45,12 +49,13 @@ module.exports = {
       name: 'booking',
       filename: 'remoteEntry.js',
       exposes: {
-        './Booking': './src/pages/index',
+        // './Booking': './src/pages/index',
+        './RemoteApp': '/src/pages/RemoteApp',
       },
       shared: {
         react: { singleton: true },
         'react-dom': { singleton: true },
-        'react-router-dom': { singleton: true },
+        'react-router-dom': {},
       },
     }),
   ],

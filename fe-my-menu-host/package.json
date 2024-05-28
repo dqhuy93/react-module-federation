@@ -9,17 +9,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KhoiNK/fe-my-menu-host.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/KhoiNK/fe-my-menu-host/issues"
-  },
-  "homepage": "https://github.com/KhoiNK/fe-my-menu-host#readme",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
